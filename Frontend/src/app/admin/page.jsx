@@ -64,12 +64,14 @@ const Admin = () => {
           <div className="bg-white m-5">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-300 m-3">
-                  <th className="py-2 px-4">Name</th>
-                  <th className="py-2 px-4">Email Id</th>
-                  <th className="py-2 px-4">Registration Date</th>
-                  <th className="py-2 px-4">Volunteer list</th>
-                  <th className="py-2 px-4">Action</th>
+                <tr className="bg-[#F5F6FA] m-3">
+                  <th className="text-[#686868] py-2 px-4">Name</th>
+                  <th className="text-[#686868] py-2 px-4">Email Id</th>
+                  <th className="text-[#686868] py-2 px-4">
+                    Registration Date
+                  </th>
+                  <th className="text-[#686868] py-2 px-4">Volunteer list</th>
+                  <th className="text-[#686868] py-2 px-4">Action</th>
                 </tr>
               </thead>
               <tbody>
