@@ -1,8 +1,14 @@
+import Login from "./login/page";
+import Register from "./register/page";
+import Footer from "./shared/Footer";
+import Navbar from "./shared/Navbar";
 
 export default function Home() {
   return (
     <div>
-      <h1>this is home</h1>
+      {/* <Navbar /> */}
+      <Login />
+      <Register />
     </div>
   )
 }
