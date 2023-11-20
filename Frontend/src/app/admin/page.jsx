@@ -1,10 +1,53 @@
 import Head from "next/head";
 import React from "react";
-import logo from "../../assets/logos/Group 1329.png";
-import people from "../../assets/logos/users-alt 1.png";
-import plus from "../../assets/logos/plus 1.png";
+import Sidebar from "../components/Sidebar";
+import deleteButton from "../../assets/logos/trash-2 9.png";
 import Image from "next/image";
-import Link from "next/link";
+
+const volunteers = [
+  {
+    id: 1,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+  {
+    id: 2,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+  {
+    id: 3,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+  {
+    id: 4,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+  {
+    id: 5,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+  {
+    id: 6,
+    name: "Moshiur Rahman",
+    email: "rmosiur324@gmail.com",
+    date: "22-10-2020",
+    list: "Organize books at the library.",
+  },
+];
 
 const Admin = () => {
   return (
@@ -13,39 +56,44 @@ const Admin = () => {
         <title>Volunteer Network - Admin</title>
       </Head>
       <div className="flex">
-        <div
-          className={`w-72 h-screen bg-slate-700 flex flex-col items-center`}
-        >
-          <div>
-            <div>
-              <Image
-                src={logo}
-                className=" h-14 w-32 cursor-pointer"
-                alt="logo"
-              />
-            </div>
-            <ul>
-              <li className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer hover:text-red-500 mt-5">
-                <Image
-                  src={people}
-                  className=" h-4 w-4 cursor-pointer bg-gray-300"
-                  alt="logo"
-                />
-                <Link href="/volunteerRegister">Volunteer resgister list</Link>
-              </li>
-              <li className="text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer hover:text-red-500 mt-3">
-                <Image
-                  src={plus}
-                  className=" h-4 w-4 cursor-pointer bg-gray-300"
-                  alt="logo"
-                />
-                <Link href="/addEvent">Add event</Link>
-              </li>
-            </ul>
+        <Sidebar />
+        <div className=" flex-1 h-screen bg-gray-200">
+          <div className="flex items-center ps-5 h-20 bg-white">
+            <h1 className="text-2xl font-semibold">Volunteer Register List</h1>
           </div>
-        </div>
-        <div className="p-7 flex-1 h-screen">
-          <h1 className="text-2xl font-semibold">Volunteer Register List</h1>
+          <div className="bg-white m-5">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-gray-300 m-3">
+                  <th className="py-2 px-4">Name</th>
+                  <th className="py-2 px-4">Email Id</th>
+                  <th className="py-2 px-4">Registration Date</th>
+                  <th className="py-2 px-4">Volunteer list</th>
+                  <th className="py-2 px-4">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {volunteers.map((vol) => (
+                  <tr key={vol.id}>
+                    <td className="py-2 px-4">{vol.name}</td>
+                    <td className="py-2 px-4">{vol.email}</td>
+                    <td className="py-2 px-4">{vol.date}</td>
+                    <td className="py-2 px-4">{vol.list}</td>
+                    <td className="py-2 px-4">
+                      <button className="bg-red-500 text-white py-1 px-2 rounded">
+                        <Image
+                          width={30}
+                          height={30}
+                          src={deleteButton}
+                          alt="delete"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

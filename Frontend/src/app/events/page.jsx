@@ -12,7 +12,7 @@ const events = [
 
 const Event = () => {
   return (
-    <div className=" w-3/4 mx-auto">
+    <div className=" w-3/4 mx-auto h-screen">
       <Head>
         <title>Volunteer Network - Events</title>
       </Head>
