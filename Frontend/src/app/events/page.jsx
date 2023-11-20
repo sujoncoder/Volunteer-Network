@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import eventImage from "../../assets/images/extraVolunteer.png";
+import Head from "next/head";
 
 const events = [
   { id: 1, title: "Humanity more", date: "29 sep, 2020" },
@@ -12,6 +13,9 @@ const events = [
 const Event = () => {
   return (
     <div className=" w-3/4 mx-auto">
+      <Head>
+        <title>Volunteer Network - Events</title>
+      </Head>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-7 h-56 mt-8">
         {" "}
         {events.map((event) => (
