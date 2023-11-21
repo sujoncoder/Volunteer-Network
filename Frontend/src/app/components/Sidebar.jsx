@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-import "./sidebar.css";
+// import "./sidebar.css";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className={`w-72 h-screen flex flex-col items-center`}>
       <div>
         <div>
-          <Image src={logo} className=" h-14 w-32 cursor-pointer" alt="logo" />
+          <Image src={logo} className=" h-10 w-32 cursor-pointer" alt="logo" />
         </div>
         <ul>
           <li className="text-sm flex items-center gap-x-4 cursor-pointer hover:text-blue-500 mt-5">

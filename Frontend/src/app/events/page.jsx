@@ -8,6 +8,10 @@ const events = [
   { id: 2, title: "Humanity more", date: "29 sep, 2020" },
   { id: 3, title: "Humanity more", date: "29 sep, 2020" },
   { id: 4, title: "Humanity more", date: "29 sep, 2020" },
+  { id: 5, title: "Humanity more", date: "29 sep, 2020" },
+  { id: 6, title: "Humanity more", date: "29 sep, 2020" },
+  { id: 7, title: "Humanity more", date: "29 sep, 2020" },
+  { id: 8, title: "Humanity more", date: "29 sep, 2020" },
 ];
 
 const Event = () => {

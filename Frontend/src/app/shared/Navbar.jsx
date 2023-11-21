@@ -5,9 +5,11 @@ import logo from "../../assets/logos/Group 1329.png";
 import Image from "next/image";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { pathname } = usePathname();
 
   // create toggle function
   const handleOpenNav = () => {
@@ -35,18 +37,38 @@ const Navbar = () => {
         {/* Desktop nav section */}
         <ul className="hidden md:flex space-x-6 font-semibold">
           <li className="cursor-pointer">
-            <Link href="/home">Home</Link>
+            <Link
+              className={`link ${pathname === "/home" ? "active" : ""}`}
+              href="/home"
+            >
+              Home
+            </Link>
           </li>
 
           <li className="cursor-pointer">
-            <Link href="/events">Events</Link>
+            <Link
+              className={`link ${pathname === "/events" ? "active" : ""}`}
+              href="/events"
+            >
+              Events
+            </Link>
           </li>
 
           <li className="cursor-pointer">
-            <Link href="/blog">Blog</Link>
+            <Link
+              className={`link ${pathname === "/admin" ? "active" : ""}`}
+              href="/blog"
+            >
+              Blog
+            </Link>
           </li>
           <li className="cursor-pointer">
-            <Link href="/admin">Admin</Link>
+            <Link
+              className={`link ${pathname === "/admin" ? "active" : ""}`}
+              href="/admin"
+            >
+              Admin
+            </Link>
           </li>
 
           {/* Toggle icon section */}
@@ -66,15 +88,30 @@ const Navbar = () => {
               }
             >
               <li className="cursor-pointer border-b mx-10 text-center p-2 hover:bg-slate-700 rounded duration-500">
-                <Link href="/home">Home</Link>
+                <Link
+                  className={`link ${pathname === "/admin" ? "active" : ""}`}
+                  href="/home"
+                >
+                  Home
+                </Link>
               </li>
 
               <li className="cursor-pointer border-b mx-10 text-center p-2 hover:bg-slate-700 rounded duration-500">
-                <Link href="/event">Events</Link>
+                <Link
+                  className={`link ${pathname === "/admin" ? "active" : ""}`}
+                  href="/event"
+                >
+                  Events
+                </Link>
               </li>
 
               <li className="cursor-pointer mx-10 text-center p-2 border-b hover:bg-slate-700 rounded duration-500">
-                <Link href="/blog">Blog</Link>
+                <Link
+                  className={`link ${pathname === "/admin" ? "active" : ""}`}
+                  href="/blog"
+                >
+                  Blog
+                </Link>
               </li>
             </ul>
 

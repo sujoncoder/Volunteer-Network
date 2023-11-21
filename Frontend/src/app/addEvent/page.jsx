@@ -1,3 +1,5 @@
+"use client";
+
 import Head from "next/head";
 import React from "react";
 import Sidebar from "../components/Sidebar";
@@ -5,6 +7,19 @@ import Image from "next/image";
 import uploadFile from "../../assets/logos/cloud-upload-outline 1.png";
 
 const AddEvent = () => {
+  const handleAddEvent = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const title = form.title.value;
+    const date = form.date.value;
+    const description = form.description.value;
+    const file = form.file.value;
+
+    const data = { title, date, description, file };
+
+    console.log(data);
+  };
   return (
     <div>
       <Head>
@@ -17,7 +32,10 @@ const AddEvent = () => {
             <h1 className="text-2xl font-semibold">Add Event</h1>
           </div>
           <div className="">
-            <form className="grid grid-cols-2 bg-white m-5 p-8">
+            <form
+              onSubmit={handleAddEvent}
+              className="grid grid-cols-2 bg-white m-5 p-8"
+            >
               <div className="mb-4">
                 <label
                   htmlFor="fullName"
@@ -27,8 +45,9 @@ const AddEvent = () => {
                 </label>
                 <input
                   type="text"
+                  name="title"
                   className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
-                  placeholder="Enter your full name"
+                  placeholder="Enter title"
                 />
               </div>
 
@@ -41,6 +60,7 @@ const AddEvent = () => {
                 </label>
                 <input
                   type="date"
+                  name="date"
                   className="border border-gray-300 rounded-md w-full py-2 ms-3 px-3 focus:outline-none focus:ring focus:border-blue-300"
                 />
               </div>
@@ -54,6 +74,7 @@ const AddEvent = () => {
                 </label>
                 <textarea
                   className="border border-gray-300 rounded-md w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300"
+                  name="description"
                   placeholder="Enter a short description"
                 />
               </div>
@@ -61,7 +82,7 @@ const AddEvent = () => {
                 <input
                   type="file"
                   className=" hidden"
-                  name="banner"
+                  name="file"
                   id="upload"
                 />
                 <label
