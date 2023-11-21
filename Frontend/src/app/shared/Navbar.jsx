@@ -1,90 +1,51 @@
-"use client"
-
-import React, { useState } from 'react'
-import logo from "../../assets/logo.png"
-import Image from 'next/image'
-import { IoMdMenu, IoMdClose } from "react-icons/io";
+import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false)
-
-    // create toggle function
-    const handleOpenNav = () => {
-        setOpen(!open)
-    }
-
-    // create close function
-    const handleCloseNav = () => {
-        setOpen(!open)
-    }
     return (
-        <main>
-            <section className='py-4 flex justify-between items-center mx-[100px]'>
-                {/* Logo section */}
-                <div>
-                    <Image
-                        src={logo}
-                        width={150}
-                        height={150}
-                        alt='logo'
-                        className='cursor-pointer'
-                    />
+        <nav>
+            <div className="container mx-auto flex items-center justify-between py-4">
+                {/* Left side - Logo */}
+                <div className="flex items-center">
+                    <a href="/">
+                        <Image
+                            src={logo}
+                            width={150}
+                            height={150}
+                            alt='logo'
+                        />
+                    </a>
                 </div>
 
-                {/* Desktop nav section */}
-                <ul className='hidden md:flex space-x-6 font-semibold'>
+                {/* Right side - Navigation Links and Buttons */}
+                <div className="flex items-center">
+                    {/* Navigation Links */}
+                    <ul className="flex space-x-4 text-lg">
+                        <li>
+                            <Link href="/" className="font-semibold">Home</Link>
+                        </li>
+                        <li>
+                            <Link href="events" className="font-semibold">Events</Link>
+                        </li>
+                        <li>
+                            <Link href="blog" className="font-semibold">Blogs</Link>
+                        </li>
+                    </ul>
 
-                    <li className='cursor-pointer'>
-                        <Link href="/home">Home</Link>
-                    </li>
+                    {/* Buttons - Login and Dashboard */}
+                    <div className="ml-4">
+                        <Link href="/login">
+                            <button className="bg-green-600 text-white active:bg-green-700 px-4 py-2 rounded-md mr-2">Login</button>
+                        </Link>
 
-                    <li className='cursor-pointer'>
-                        <Link href="/events">Events</Link>
-                    </li>
-
-                    <li className='cursor-pointer'>
-                        <Link href="/blog">Blog</Link>
-                    </li>
-
-
-                    {/* Toggle icon section */}
-                    <div className='md:hidden' onClick={handleOpenNav}>
-                        {
-                            (!open) ? <IoMdMenu className='cursor-pointer' size={25} /> :
-                                <IoMdClose className='cursor-pointer' size={25} />
-                        }
-
-                        {/* Mobile navbar secion */}
-                        <ul className={(!open) ? 'hidden' : 'absolute top-16 uppercase text-xl font-medium flex flex-col left-0 w-full h-[250px]'}>
-
-                            <li className='cursor-pointer border-b mx-10 text-center p-2 hover:bg-slate-700 rounded duration-500'>
-                                <Link href="/home">Home</Link>
-                            </li>
-
-                            <li className='cursor-pointer border-b mx-10 text-center p-2 hover:bg-slate-700 rounded duration-500'>
-                                <Link href="/event">Events</Link>
-                            </li>
-
-                            <li className='cursor-pointer mx-10 text-center p-2 border-b hover:bg-slate-700 rounded duration-500'>
-                                <Link href="/blog">Blog</Link>
-                            </li>
-                        </ul>
-
-                        {/* button area */}
-                        <div className='hidden md:flex space-x-4'>
-                            <button className='py-2 px-4 bg-blue-500 active:bg-blue-700 rounded text-white'>Login</button>
-
-                            <button className='py-2 px-4 bg-green-700 active:bg-green-800 rounded text-white'>Admin</button>
-                        </div>
+                        <button className="bg-blue-500 active:bg-blue-600 text-white px-4 py-2 rounded-md">Dashboard</button>
                     </div>
-                </ul>
+                </div>
+            </div>
+        </nav>
+    );
+};
 
-
-
-            </section>
-        </main>
-    )
-}
-
-export default Navbar
+export default Navbar;
